@@ -1,0 +1,90 @@
+/* importing a Google-provided font through CSS */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:wght@300&display=swap');
+
+/* colors from: https://coolors.co/152614-1e441e-2a7221-119822-31cb00 */
+/* :root is a pseudo-selector that is "parent to all", including html */
+:root {
+    /* custom attributes, also known as "CSS variables", are defined like this*/
+    --bg-color: #f7f4ea;
+    --fg-color: #101010;
+    --highlight-color: #c0b9dd;
+}
+
+/* this means "everything" */
+* {
+    /* Makes width calculations much simpler. */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Josefin Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    background: var(--bg-color); /* use CSS variables like this */
+    /* this is the text color */
+    color: var(--fg-color);
+
+    box-sizing: border-box; 
+}
+
+body {
+    /* 1.4 * 10px = 14px */
+    /* It is recommended to use rem for font sizes, to play well with browser zoom */
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+/* header */
+body > header {
+    padding: 2rem 0;
+    text-align: center;
+
+    /* A background gradient. Generated with https://cssgradient.io/ */
+    background: #ded9e2;
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(226,217,217,1) 35%);
+
+}
+
+h1 {
+    /* behave externally like text (flow) so we can the text-align: center in header centers it,
+       but behave internally like a block so that we can set up a different text align */
+    display: inline-block;
+    text-align: left;
+
+    margin: 2rem auto;
+    font-size: 2.4rem;
+
+}
+
+h1 > span {
+    display: block;
+    font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 4.2rem;
+    margin-top: -0.2rem; /* this has the effect of pulling the block upwards */
+}
+
+/* main */
+body > main {
+    /* Guarantee some padding at the top and bottom. */
+    padding: 2rem 0;
+}
+
+#wrapper {
+    width: 100%;
+    /* It's always a good idea to limit the maximum width. Lines of text that are too long
+       are hard to read. */
+    max-width: 1200px;
+
+    /* Simple horizontal centering. */
+    margin: 0 auto;
+    /* Guarantee some padding at the left and right. */
+    padding: 0 2rem;
+}
+
+#app {
+    border: 5px solid var(--highlight-color);
+    border-radius: 2rem; /* Rounded borders. */
+    margin: 2rem auto;
+    padding: 2rem;
+}

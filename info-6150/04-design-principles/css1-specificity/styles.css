@@ -1,0 +1,76 @@
+p {
+    color: blue;
+}
+
+footer {
+    font-size: 0.8rem;
+}
+
+main {
+    width: 100%;
+}
+
+/* Everything with the class "lorem" */
+.lorem {
+    color: red;
+}
+
+/* tags with lorem class, inside paragraphs */ 
+p .lorem {
+    color: darkred;
+}
+
+/* in order of specificity. If we were to invert the
+   order, the final color would still be cyan. */
+p {
+    color: blue;
+}
+
+.most {
+    color: green;
+}
+
+p.most {
+    color: yellow;
+}
+
+#unique {
+    color: gray;
+}
+
+p#unique {
+    color: cyan;
+}
+
+#unique {
+    color: purple !important;   
+}
+
+/* more selectors */
+
+/* this means: all "a" tags that are direct children of a "p" tag.
+   For example, <p><a /><p>,
+   but not <p><span><a /></span></p> */ 
+p > a {
+    font-size: 12px;
+}
+
+/* out of all "p" tags, the first one of their "siblings" */
+/* items starting with a colon are called pseudo-selectors. There are many */
+li:first-child {
+    color: green;
+}
+
+/* :hover and :visited are a type of pseudo-selector called
+   pseudo-classes. They allow us to style states of an element. */
+
+/* when we hover an <a>, it's in a "hover" state */
+a:hover {
+    font-weight: bold;
+}
+
+/* when we have already visited a link, it's in a "visited" state */
+a:visited {
+    font-weight: normal;
+    font-style: italic;
+}

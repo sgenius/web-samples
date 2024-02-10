@@ -1,0 +1,67 @@
+/* colors from: https://coolors.co/visualizer/353535-ffffff-d2d7df-bdbbb0-8a897c */
+html {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 10px;
+    background: #fff;
+    /* this is the text color */
+    color: #353535;
+}
+
+body {
+    /* 1.4 * 10px = 14px */
+    /* It is recommended to use rem for font sizes, to play well with browser zoom */
+    font-size: 1.6rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #8a897c;
+    margin: 2rem 0;
+    font-family: 'Poppins', sans-serif;
+
+    /* this centers the text (flow content, eg. display: inline) horizontally */
+    text-align: center;
+}
+
+#app {
+    background: #d2d7df;
+    
+    /* this box will expand as much as possible, but only up until 1200px */
+    width: 100%;
+    max-width: 1200px;
+
+    /* add some spacing between the border and the content */
+    padding: 2rem;
+    
+    /* this will center the box (display: block) horizontally */
+    margin: 0 auto;
+}
+
+#result {
+    color: #111;
+    font-weight: bold;
+
+    /* some vertical spacing for the text */
+    margin: 1rem 0;
+}
+
+label {
+    /* labels are usually display: inline; with this trick we can set a line per input
+       with a semantic HTML */
+    display: block;
+    padding: 1rem 0;
+}
+
+#btn-calculate {
+    background:#8a897c;
+    color: #fff;
+
+    font-size: 1.6rem;
+
+    padding: 1rem;
+}
+
+#errormsg {
+    color: red;
+    padding: 1rem 0;
+}

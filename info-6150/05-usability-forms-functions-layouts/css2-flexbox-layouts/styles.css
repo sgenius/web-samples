@@ -1,0 +1,226 @@
+/* Google fonts: go to fonts.google.com */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* colors from: https://coolors.co/06070e-29524a-94a187-c5afa0-e9bcb7 */
+/* CSS "variables" (custom properties): https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
+:root {
+    /* rgb() defines a color in terms of red, green and blue intensities, from 0 to 255.
+       It's essentially the same as #rrggbb, but in a decimal format rather than hexadecimal. */
+    --bg-color-body: rgb(6, 7, 14);
+    --bg-color-main: rgb(41, 82, 74);
+    --highlight-color-1: rgb(148, 161, 135);
+    --highlight-color-1-transparent: rgba(148, 161, 135, 0.1);
+    --highlight-color-2: rgb(197, 175, 160);
+    --highlight-color-2-transparent: rgba(197, 175, 160, 0.1); /* in rgba, the "a" is opaqueness. 1 is a solid, opaque color; 0 is transparent. */
+    --highlight-color-3: rgb(233, 188, 183);
+    --highlight-color-3-transparent: rgba(233, 188, 183, 0.1);
+    --fg-color: rgb(240, 240, 240);
+}
+
+/* makes calculations of width + padding easier */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+* {
+    box-sizing: border-box; 
+}
+
+html {
+    font-family: 'Lora', serif;
+    font-size: 10px;
+    background: var(--bg-color-body);
+    /* this is the text color */
+    color: var(--fg-color);
+}
+
+body {
+    /* 1.4 * 10px = 14px */
+    /* It is recommended to use rem for font sizes, to play well with browser zoom */
+    font-size: 1.6rem;
+}
+
+main {
+    width: 100%;
+    max-width: 120rem;
+
+    margin: 0 auto;
+    background: var(--bg-color-main);
+
+    line-height: 1.2;
+}
+
+/* this applies to h1 and h2 */
+h1, h2 {
+    font-size: 3.5rem;
+    color: var(--highlight-color-3);
+    padding: 3rem 0;
+    font-weight: 700;
+
+    text-shadow: 1px 1px 2px var(--bg-color-body);
+
+    /* this centers the text (flow content, eg. display: inline) horizontally */
+    text-align: center;
+}
+
+/* this only applies to h2, and overwrites some of the rules above */
+h2 {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 1rem 0;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+.note {
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* Base styles for layouts */
+article {
+    display: flex;
+
+    margin: 2rem 0;
+
+    min-height: 100vh; /* 100% of the height of your screen. */
+    border: 0.5rem solid var(--highlight-color-1);
+    background: var(--highlight-color-1-transparent);
+}
+
+.sidebar, .content {
+    border: 0.5rem solid var(--highlight-color-2);
+    background: var(--highlight-color-2-transparent);
+    padding: 1rem;
+}
+
+.content {
+    border-color: var(--highlight-color-3);
+    background: var(--highlight-color-3-transparent);
+}
+
+/* Styles for navigations */
+nav a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 0.2rem solid rgba(0, 0, 128);
+    background-color: rgba(0, 0, 128, 0.2);
+    color: rgba(250, 250, 255);
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: rgba(0, 0, 128, 0.7);
+}
+
+/* Layout demos with flexbox */
+/* All layouts are one-column at first (mobile first).
+    We will overwrite these styles later for wider screens. */
+
+article {
+    flex-direction: column;
+}
+
+/* Set up a breakpoint. Inside of it, instructions that apply to
+   screens of certain characteristics only - in this case, 
+   widths of 640px and above. */
+
+@media (min-width: 640px) {
+    /* The two-column */
+    .two-column {
+        flex-direction: row;
+    }
+
+    .two-column .content {
+        /* flex-grow: 7/10; flex-shrink: 1; flex-basis: 0 (ignore content) */
+        /* We ignore content so that we can still create empty columns. */
+        flex: 7 1 0;
+
+    }
+
+    .two-column .sidebar {
+        /* Same but flex-grow: 3/10 */
+        flex: 3 1 0;
+    }
+
+    /* The three column */
+    .three-column {
+        flex-direction: row;
+    }
+
+    /* center column */
+    .three-column .content {
+        flex: 5 1 0;
+    }
+
+    /* sidebars */
+    .three-column .sidebar {
+        flex: 2.5 1 0;
+    }
+
+    /* The progressive three column */
+    .three-column-progressive {
+        flex-direction: row;
+    }
+
+    .three-column-progressive .sidebar-left {
+        flex: 3 1 0;
+    }
+
+    .three-column-progressive .right-wrapper {
+        flex: 7 1 0;
+    }
+}
+
+/* A second breakpoint for the progressive three column */
+@media (min-width: 1024px) {
+    /* The right wrapper also becomes a flex parent! */
+    .three-column-progressive .right-wrapper {
+        flex: 7.6 1 0; /* it's a children! */
+        display: flex; /* it's also a parent! */
+    }
+
+    .three-column-progressive .right-wrapper .content {
+        flex: 6.6 1 0;
+    }
+
+    .three-column-progressive .right-wrapper .sidebar {
+        flex: 3.4 1 0;
+    }
+
+    /* the left sidebar also needs to become thinner */
+    .three-column-progressive .sidebar-left {
+        flex: 2.4 1 0;
+    }
+
+    /* This is not a perfect solution. The calculations became difficult, and
+       the left and right columns end up not having the exact same width. */
+}
+
+/* The full center */
+.full-center {
+    align-items: center;
+    justify-content: center;
+}
+
+/* One column, with header and footer */
+.header-and-footer {
+    flex-direction: column;
+    height: auto; /* resetting to the default */
+}
+
+.header-and-footer nav {
+    padding-bottom: 1rem;
+}
+
+/* note that the display: flex is being applied to the <ul> tag */
+nav.horizontal-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}

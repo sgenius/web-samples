@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Layouts</title>
+        <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <h1>Responsive layouts with grid</h1>
+            <p class="note">Examine these examples using the Developer Tools in your browser. Try resizing your window width to see how these work.</p>
+            <h2>Creating columns on the breakpoints</h2>
+            <article class="parent grid layout-1">
+                <div>1. In this simple layout...</div>
+                <div>2. ...the items will adapt...</div>
+                <div>3. ...to the columns available.</div>
+                <div>4. We create more columns...</div>
+                <div>5. ...on wider breakpoints.</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+                <div>11</div>
+                <div>12</div>
+            </article>
+            <article class="parent grid layout-2">
+                <header>
+                    <h2>Static columns; cells change positioning on the breakpoints</h2>
+                </header>
+                <div class="left-sidebar">A left sidebar.</div>
+                <main>
+                    <p>Many grid systems use 12 columns.</p>
+                    <p>They use this technique.</p>
+                    <p>Basically, we define in each breakpoint where each cell starts and ends.</p>
+                </main>
+                <div class="right-sidebar">A right sidebar.</div>
+                <footer>A footer.</footer> 
+            </article>
+            <article class="parent grid layout-3">
+                <header>
+                    <h2>Static columns; cells change positioning, full-height width</h2>
+                </header>
+                <div class="left-sidebar">A left sidebar.</div>
+                <main>
+                    <p>This grid is similar to the above, but we make sure the central content is as high as its parent.</p>
+                    <p>Can be useful for sub-layouts.</p>
+                </main>
+                <div class="right-sidebar">A right sidebar.</div>
+                <footer>A footer.</footer> 
+            </article>
+        </main>
+    </body>
+</html>

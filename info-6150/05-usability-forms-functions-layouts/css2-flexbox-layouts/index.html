@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Layouts</title>
+        <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <h1>Layouts with flexbox (display: flex)</h1>
+            <p class="note"><strong>Note: </strong> for the purposes of presentation, most layouts here have been restricted to a set height. In many cases the height should be determined by the content instead.</p>
+            <article class="two-column">
+                <div class="sidebar">
+                    <h3>Left sidebar</h3>
+                    <nav>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="content">
+                    <h2>The two-column with left sidebar</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At elementum eu facilisis sed odio morbi quis commodo. Amet dictum sit amet justo donec enim diam vulputate. Etiam dignissim diam quis enim. Odio eu feugiat pretium nibh ipsum consequat nisl vel. Rhoncus dolor purus non enim praesent elementum. Massa eget egestas purus viverra accumsan in nisl nisi scelerisque. Fringilla urna porttitor rhoncus dolor purus. In nisl nisi scelerisque eu ultrices vitae auctor. Diam volutpat commodo sed egestas egestas fringilla phasellus. Ipsum dolor sit amet consectetur adipiscing. Diam in arcu cursus euismod quis viverra nibh cras pulvinar. Nunc pulvinar sapien et ligula ullamcorper malesuada proin.</p>
+                </div>
+            </article>
+            <article class="two-column">
+                <div class="content">
+                    <h2>The two-column with right sidebar</h2>
+                </div>
+                <div class="sidebar">
+                    Right sidebar
+                </div>
+            </article>
+            <article class="three-column">
+                <div class="sidebar sidebar-left">
+                    Left sidebar
+                </div>
+                <div class="content">
+                    <h2>The three-column</h2>
+                </div>
+                <div class="sidebar sidebar-right">
+                    Right sidebar
+                </div>
+            </article>
+            <article class="three-column-progressive">
+                <div class="sidebar sidebar-left">
+                    Left sidebar
+                </div>
+                <div class="right-wrapper">
+                    <div class="content">
+                        <h2>The progressive three-column</h2>
+                        <p>This design has two columns in medium-sized screens and three columns in wider ones.</p>
+                    </div>
+                    <div class="sidebar sidebar-right">
+                        <p>Right sidebar</p>
+                    </div>
+                </div>
+            </article>
+            <article class="full-center">
+                <div class="content">
+                    <h2>The full center</h2>
+                    <p>Before flexbox, this was <em>very</em> difficult to do.</p>
+                </div>
+            </article>
+            <article class="header-and-footer">
+                <header>
+                    <h2>One column, with header and footer (height not forced)</h2>
+                </header>
+                <nav class="horizontal-nav">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <p>You could combine layouts: this central part could have columns as well.</p>
+                    <p>By the way: This example, being vertical, does not have a forced height - since that is rarely desired in a web page.</p>
+                    <p>Instead, the height is calculated based on the content.</p>
+                    <p>Here is an image to fill up some space.</p>
+                    <img src="https://picsum.photos/400" alt="A generated image; the contents don't matter." />
+                </div>
+                <footer>
+                    Footer content.
+                </footer>
+            </article>
+        </main>
+    </body>
+</html>
