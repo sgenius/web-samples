@@ -1,0 +1,18 @@
+
+#sample {
+    background-color: yellowgreen;
+    background-image: url(images/smile.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background: yellowgreen no-repeat top left url(images/smile.png); /* the same, in a single row */
+
+    border: 5px solid green;
+    color: blue;
+
+    font-family: 'Courier New', Courier, monospace;
+    text-align: right;
+
+    height: 2rem;
+    width: 100%; /* the default */
+}
+

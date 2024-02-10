@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Currency conversion</title>
+        <meta charset=”utf-8″/>
+        <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <script src="script.js"></script>
+    </head>
+    <body onload="init()">
+        <header>
+            <h1>An example on currency <span>conversion</span></h1>
+        </header>
+        <main>
+            <div id="wrapper">
+                <p>Using data from <a href="https://www.fixer.io">fixer.io</a></p>
+                <section id="app">
+                    <form id="currencyForm">
+                        <div class="row">
+                            I want to convert 
+                            <label for="quantity">(quantity)</label>
+                            <input type="number" id="quantity" name="quantity" required />
+                        </div>
+                        <div class="row">
+                            <label for="currencyFrom">(of which currency)</label>
+                            <select id="currencyFrom" name="currencyFrom" required></select>
+                        </div>
+
+                        <div class="row">
+                            <label for="currencyTo">(to which currency)</label>
+                            <select id="currencyTo" name="currencyTo" required></select>
+                            .
+                        </div>
+                        <div class="row">
+                            <input type="submit" onclick="clickHandler(event)" value="Convert" />
+                        </div>
+                        <div id="result" class="row result">
+
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>

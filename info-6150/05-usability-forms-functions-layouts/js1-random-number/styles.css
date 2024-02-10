@@ -1,0 +1,55 @@
+/* colors from: https://coolors.co/152614-1e441e-2a7221-119822-31cb00 */
+html {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 10px;
+    background: #152614;
+    /* this is the text color */
+    color: #31CB00;
+}
+
+body {
+    /* 1.4 * 10px = 14px */
+    /* It is recommended to use rem for font sizes, to play well with browser zoom */
+    font-size: 1.6rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 2rem 0;
+
+    /* this centers the text (flow content, eg. display: inline) horizontally */
+    text-align: center;
+}
+
+#app {
+    border: 1px solid #293f29;
+    background: #31CB00;
+    
+    /* this box will expand as much as possible, but only up until 1200px */
+    width: 100%;
+    max-width: 1200px;
+
+    /* add some spacing between the border and the content */
+    padding: 2rem;
+    
+    /* this will center the box (display: block) horizontally */
+    margin: 0 auto;
+}
+
+#result {
+    color: #111;
+    font-weight: bold;
+
+    /* some vertical spacing for the text */
+    margin: 1rem 0;
+}
+
+#btn-get-number {
+    background:#2A7221;
+    color: #1e4413;
+
+    font-size: 1.6rem;
+
+    padding: 1rem;
+}

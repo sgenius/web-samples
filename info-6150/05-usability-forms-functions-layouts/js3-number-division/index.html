@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Number division</title>
+        <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+
+        <!-- go to fonts.google.com, select a font, click "type tester" and then "select all styles" -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Shrikhand&display=swap" rel="stylesheet">
+        
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <h1>Number division</h1>
+        <section id="app">
+            <form id="form" onsubmit="handleClick(event)">
+                <label for="numerator">
+                    <div>Numerator</div>
+                    <input type="number" id="numerator" name="numerator" size="5" required />
+                </label>
+
+                <label for="denominator">
+                    <div>Denominator</div>
+                    <input type="number" id="denominator" name="denominator" size="5" required/>
+                </label>
+                <input type="submit" value="Calculate" id="btn-calculate">
+            </form>
+            <div id="errormsg"></div>
+            <div id="result"></section>
+        </section>
+    </body>
+</html>

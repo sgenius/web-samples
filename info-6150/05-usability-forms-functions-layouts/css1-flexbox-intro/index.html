@@ -1,0 +1,324 @@
+<html>
+    <head>
+        <title>Layouts</title>
+        <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <h1>A demonstration of flexbox (display: flex)</h1>
+            <h2>flex-direction</h2>
+            <article>
+                <h3>flex-direction: row (default)</h3>
+                <div class="parent flexbox flexbox-row">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>flex-direction: column</h3>
+                <div class="parent flexbox flexbox-column">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>flex-direction: row-reverse</h3>
+                <div class="parent flexbox flexbox-row-reverse">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>flex-direction: column-reverse</h3>
+                <div class="parent flexbox flexbox-column-reverse">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>            
+            <h2>justify-content</h2>
+            <article>
+                <h3>justify-content: flex-start (default)</h3>
+                <div class="parent flexbox flexbox-justify-start">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>justify-content: flex-end</h3>
+                <div class="parent flexbox flexbox-justify-end">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>justify-content: center</h3>
+                <div class="parent flexbox flexbox-justify-center">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>justify-content: space-between</h3>
+                <div class="parent flexbox flexbox-justify-space-between">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>justify-content: space-around</h3>
+                <div class="parent flexbox flexbox-justify-space-around">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article> 
+            <article>
+                <h3>justify-content: space-evenly</h3>
+                <div class="parent flexbox flexbox-justify-space-evenly">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <h2>flex-wrap</h2>
+            <article>
+                <h3>flex-wrap: nowrap (default)</h3>
+                <div class="parent flexbox flexbox-nowrap">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                </div>
+            </article>
+            <article>
+                <h3>flex-wrap: wrap</h3>
+                <div class="parent flexbox flexbox-wrap">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                </div>
+            </article>
+            <article>
+                <h3>flex-wrap: wrap-reverse</h3>
+                <div class="parent flexbox flexbox-wrap-reverse">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                    <div>Another item</div>
+                </div>
+            </article>
+            <h2>align-items</h2>
+            <article>
+                <h3>align-items: flex-start (default)</h3>
+                <div class="parent flexbox flexbox-align-items-start">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>align-items: flex-end</h3>
+                <div class="parent flexbox flexbox-align-items-end">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>align-items: center</h3>
+                <div class="parent flexbox flexbox-align-items-center">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+                <p>These elements have been arranged with different <code>padding-top</code> and <code>padding-bottom</code> values.</p>
+                <p>Since we're arranging the elements and not the text, now the text is misaligned.</p>
+                <div class="parent flexbox flexbox-align-items-center">
+                    <div style="padding-top: 4rem; padding-bottom: 1rem">Item 1</div>
+                    <div style="padding-top: 0.5rem; padding-bottom: 3rem">Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>align-items: stretch</h3>
+                <div class="parent flexbox flexbox-align-items-stretch">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>align-items: baseline</h3>
+                <p>These elements have been arranged with different <code>padding-top</code> and <code>padding-bottom</code> values.</p>
+                <p>Note how all of the text still falls on the same line.</p>
+                <div class="parent flexbox flexbox-align-items-baseline">
+                    <div style="padding-top: 4rem; padding-bottom: 1rem">Item 1</div>
+                    <div style="padding-top: 0.5rem; padding-bottom: 3rem">Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>gap: 5rem</h3>
+                <div class="parent flexbox flexbox-gap">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+
+            <h2>The flex attribute (flex-grow, flex-shrink, flex-basis)</h2>
+            <p class="note">These are properties that are applied directly to the children; they say how much space they take.</p>
+            <p class="note"><code>flex: 1 2 auto;</code> is the same as <code>flex-grow: 1; flex-shrink: 2; flex-basis: auto</code></p>
+            <article>
+                <h3>With the defaults</h3>
+                <p>With <code>flex: 0 1 auto</code>, the elements take only the space needed by their content. This is the default (same as not writing it).</p>
+                <div class="parent flexbox">
+                    <div style="flex: 0 1 auto">Item 1</div>
+                    <div style="flex: 0 1 auto">Item 2</div>
+                    <div style="flex: 0 1 auto">A very very very long item</div>
+                </div>
+                <p>If there is not enough space, children will be made smaller as much as possible to try to fit.</p>
+                <div class="parent flexbox short-parent">
+                    <div style="flex: 0 1 auto">Item 1</div>
+                    <div style="flex: 0 1 auto">Item 2</div>
+                    <div style="flex: 0 1 auto">An absolutely humongously long item</div>
+                </div>
+            </article>
+            <article>
+                <h3>With flex-basis</h3>
+                <p>The elements take the proportion of the available space set by flex-basis.</p>
+                <div class="parent flexbox">
+                    <div style="flex: 0 1 30%">flex-basis: 30% (flex: 0 1 30%)</div>
+                    <div style="flex: 0 1 70%">flex-basis: 70% (flex: 0 1 70%)</div>
+                    <div style="flex: 0 1 30%">A very very very long item, but flex-basis: 30%</div>
+                </div>
+                <div class="parent flexbox">
+                    <div style="flex: 0 1 10rem">flex-basis: 10rem (flex: 0 1 10rem)</div>
+                    <div style="flex: 0 1 30rem">flex-basis: 30rem (flex: 0 1 30rem)</div>
+                    <div style="flex: 0 1 20rem">A very very very long item, but flex-basis: 20rem</div>
+                </div>
+            </article>
+            <article>
+                <h3>With flex-basis, where all flex-basis values sum 50%</h3>
+                <p>The elements take the proportion of the available space set by flex-basis.</p>
+                <div class="parent flexbox">
+                    <div style="flex: 0 1 10%">flex: 0 1 10%</div>
+                    <div style="flex: 0 1 30%">flex: 0 1 30%</div>
+                    <div style="flex: 0 1 10%">A very very very long item, but flex: 0 1 10%</div>
+                </div>
+            </article>
+            <article>
+                <h3>With flex-basis: auto</h3>
+                <p><code>flex-basis: auto</code> makes the basis value equal to the element width, if one is set by other means.</p>
+                <div class="parent flexbox">
+                    <div style="flex: 0 1 auto">flex-basis: auto and nothing else<br/>(flex: 0 1 auto).<br/>This won't be equal to 30%</div>
+                    <div style="flex: 0 1 auto; width: 70%">flex: 0 1 auto and width: 70%</div>
+                    <div style="flex: 0 1 30%">A very very very long item, but flex: 0 1 30%</div>
+                </div>
+            </article>
+            <article>
+                <h3>With flex-basis: 0</h3>
+                <p><code>flex-basis: 0</code> means: assume the content has a width of 0 (like there was no content). Items will compress their content as much as possible.</p>
+                <div class="parent flexbox">
+                    <div style="flex-basis: 0">flex-basis: 0</div>
+                    <div style="flex: 0 1 0">flex-basis: 0</div>
+                </div>
+                <div class="parent flexbox">
+                    <div style="flex-basis: 0">flex-basis: 0</div>
+                    <div style="flex: 0 1 0">flex-basis: 0</div>
+                    <div style="flex: 0 1 0">A very very very long item, but flex-basis: 0</div>
+                    <div style="flex: 0 1 0">flex-basis: 0 withAVeryLongWordThatCannotBeDivided</div>
+                </div>
+            </article>
+            <article>
+                <h3>With flex-grow: 1</h3>
+                <p><code>flex-basis: auto; flex-grow: 1</code> means: start with the space needed by the content, then divide the available space equally between all items</p>
+                <div class="parent flexbox">
+                    <div style="flex: 1 1 auto">flex: 1 1 auto</div>
+                    <div style="flex: 1 1 auto">flex: 1 1 auto</div>
+                    <div style="flex: 1 1 auto">A longer item, but flex: 1 1 auto</div>
+                </div>
+            </article>
+            <article>
+                <h3>With different flex-grow values</h3>
+                <p>The flex-grow values of all children are summed; then, a proportion is calculated for each one. The available space is divided with that proportion.</p>
+                <p>Here, the total is 1+2+1 = 4. The center item ends up with 2/4 = 50% and the others end up with 1/4 = 25% of the available space.</p>
+                <div class="parent flexbox">
+                    <div style="flex: 1 1 auto">flex: 1 1 auto</div>
+                    <div style="flex: 2 1 auto">flex: 2 1 auto</div>
+                    <div style="flex: 1 1 auto">flex: 1 1 auto</div>
+                </div>
+            </article>
+            <article>
+                <h3>With flex-shrink: 0</h3>
+                <p>With <code>flex-shrink: 0</code>, elements are not allowed to shrink to fit the available space (by default, they will).</p>
+                <div class="parent short-parent flexbox">
+                    <div style="flex: 0 0 auto">flex: 0 0 auto</div>
+                    <div style="flex: 0 0 auto">flex: 0 0 auto</div>
+                    <div style="flex: 0 0 auto">A longer item, but flex: 0 0 auto</div>
+                </div>
+            </article>
+            <article>
+                <h3>With flex-shrink: 1 (default)</h3>
+                <p>When needed, by default elements will shrink in a proportion adequate to their content.</p>
+                <p>The elements take the minimum space for their contents (for example, breaking lines between words).</p>
+                <p>Elements with more content get more space removed, even if <code>flex-shrink</code> is the same in all elements.</p>
+                <div class="parent short-parent flexbox">
+                    <div style="flex: 0 1 auto">flex: 0 1 auto</div>
+                    <div style="flex: 0 1 auto">A longer item, also with flex: 0 1 auto</div>
+                </div>
+                <p>Here, elements won't fit even after shrinkening, so they <strong>will</strong> overflow.</p>
+                <div class="parent short-parent flexbox">
+                    <div style="flex: 0 1 auto">flex: 0 1 auto</div>
+                    <div style="flex: 0 1 auto">A longer item, also with flex: 0 1 auto</div>
+                    <div style="flex: 0 1 auto">flex: 0 1 auto withAWordThatCannotBeDivided</div>
+                </div>
+            </article>
+            <article>
+                <h3>With different flex-shrink values</h3>
+                <p>Higher values = more space gets taken from the element.</p>
+                <p>This is also a proportion, similar to flex-grow. Here, the shrink total is 1+4+1+1 = 7; the 2nd element is shrunk more (4/7 = 0.57) and the rest, less (1/7 = 0.14)</p>
+                <div class="parent short-parent flexbox">
+                    <div style="flex: 0 1 auto">flex: 0 1 auto</div>
+                    <div style="flex: 0 4 auto">flex: 0 4 auto</div>
+                    <div style="flex: 0 1 auto">flex: 0 1 auto</div>
+                    <div style="flex: 0 1 auto">flex: 0 1 auto</div>
+                </div>
+            </article>
+
+            <h2>Non-flex (display: block) for comparison</h2>
+            <article>
+                <div class="parent">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

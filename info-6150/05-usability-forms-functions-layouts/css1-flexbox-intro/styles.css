@@ -1,0 +1,245 @@
+/* Google fonts: go to fonts.google.com */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* colors from: https://coolors.co/06070e-29524a-94a187-c5afa0-e9bcb7 */
+/* CSS "variables" (custom properties): https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
+:root {
+    /* rgb() defines a color in terms of red, green and blue intensities, from 0 to 255.
+       It's essentially the same as #rrggbb, but in a decimal format rather than hexadecimal. */
+    --bg-color-body: rgb(6, 7, 14);
+    --bg-color-main: rgb(41, 82, 74);
+    --bg-color-article: rgba(0, 0, 0, 0.2); /* in rgba, the "a" is opaqueness. 1 is a solid, opaque color; 0 is transparent. */
+    --highlight-color-1: rgb(148, 161, 135);
+    --highlight-color-2: rgb(197, 175, 160);
+    --highlight-color-3: rgb(233, 188, 183);
+    --fg-color: rgb(240, 240, 240);
+}
+
+/* makes calculations of width + padding easier */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing */
+* {
+    box-sizing: border-box; 
+}
+
+html {
+    font-family: 'Lora', serif;
+    font-size: 10px;
+    background: var(--bg-color-body);
+    /* this is the text color */
+    color: var(--fg-color);
+}
+
+body {
+    /* 1.4 * 10px = 14px */
+    /* It is recommended to use rem for font sizes, to play well with browser zoom */
+    font-size: 1.6rem;
+}
+
+main {
+    width: 100%;
+    max-width: 120rem;
+
+    margin: 0 auto;
+    background: var(--bg-color-main);
+}
+
+/* this applies to h1 and h2 */
+h1, h2 {
+    font-size: 3.5rem;
+    color: var(--highlight-color-3);
+    padding: 3rem 0;
+    font-weight: 700;
+
+    text-shadow: 1px 1px 2px var(--bg-color-body);
+
+    /* this centers the text (flow content, eg. display: inline) horizontally */
+    text-align: center;
+}
+
+/* this only applies to h2, and overwrites some of the rules above */
+h2 {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 1rem 0;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+strong {
+    font-weight: 700;
+}
+
+code {
+    font-family: monospace;
+    text-shadow: 1px 1px 2px var(--bg-color-body);
+}
+
+article {
+    padding: 2rem;
+    border: 1px solid var(--bg-color-body);
+    border-width: 1px 0; /* border on top and bottom, but not on the sides */
+    background: var(--bg-color-article);
+}
+
+.parent, .parent div {
+    border: 0.5rem solid var(--highlight-color-3);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.parent {
+    border-color: var(--highlight-color-1);
+}
+
+.parent > div {
+    border-color: var(--highlight-color-2);
+}
+
+/* "a <p> that follows a .parent". The styles get applied to the p. */ 
+.parent + p {
+    margin-top: 2rem;
+}
+
+.smallbox {
+    width: 1rem;
+    height: 1rem;
+}
+
+.note {
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+/* Flexbox demos
+   Also see: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+*/
+.flexbox {
+    display: flex;
+    min-height: 16rem;
+}
+
+.flexbox-row {
+    flex-direction: row; /* the default */
+}
+
+.flexbox-column {
+    flex-direction: column;
+}
+
+.flexbox-row-reverse {
+    flex-direction: row-reverse; 
+}
+
+.flexbox-column-reverse {
+    flex-direction: column-reverse; 
+}
+
+/* wrap regulates if items will all fall within the same line (nowrap)
+   or if they can be broken in different lines (wrap) */
+.flexbox-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flexbox-wrap {
+    flex-wrap: wrap;
+}
+
+.flexbox-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+
+/* How items are aligned along the main axis */
+.flexbox-justify-start {
+    justify-content: flex-start;
+}
+
+.flexbox-justify-end {
+    justify-content: flex-end;
+}
+
+.flexbox-justify-center {
+    justify-content: center;
+}
+
+.flexbox-justify-space-between {
+    justify-content: space-between;
+}
+
+.flexbox-justify-space-around {
+    justify-content: space-around;
+}
+
+.flexbox-justify-space-evenly {
+    justify-content: space-evenly;
+}
+
+/* How items align on the cross axis. */
+.flexbox-align-items-start {
+    align-items: flex-start;
+}
+
+.flexbox-align-items-end {
+    align-items: flex-end;
+}
+
+.flexbox-align-items-center {
+    align-items: center;
+}
+
+.flexbox-align-items-stretch {
+    align-items: stretch;
+}
+
+/* This aligns using the text baseline: all text
+within the containers appears on the same line. */
+.flexbox-align-items-baseline {
+    align-items: baseline;
+}
+
+/* align-content is similar to align-items, but for the secondary axis */
+.flexbox-align-content-start {
+    align-content: flex-start;
+}
+
+.flexbox-align-content-end {
+    align-content: flex-end;
+}
+
+.flexbox-align-content-center {
+    align-content: center;
+}
+
+.flexbox-align-content-stretch {
+    align-content: stretch;
+}
+
+.flexbox-align-content-space-between {
+    align-content: space-between;
+}
+
+.flexbox-align-content-space-around {
+    align-content: space-around;
+}
+
+/* Defines a *minimum* gap between items. */
+/* Use column-gap for gaps between columns, and row-gap for gaps between rows. */
+.flexbox-column-gap {
+    column-gap: 5rem;
+}
+
+/* use "gap" to define both at the same time */
+.flexbox-gap {
+    gap: 5rem;
+}
+
+.short-parent {
+    width: 50rem;
+}

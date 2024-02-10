@@ -1,0 +1,497 @@
+<html>
+    <head>
+        <title>Layouts</title>
+        <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body>
+        <main>
+            <h1>A demonstration of grid (display: grid)</h1>
+            <p class="note">Examine these examples using the Developer Tools in your browser.</p>
+            <article>
+                <h2>A "default" grid</h2>
+                <p>Here, the parent has <code>display: grid</code> and nothing else. It automatically defines one column, plus one row per child.</p>
+                <p>It looks the same as a flow layout at this point!</p>
+                <div class="parent grid">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+                <p>The behavior of the children changes if we force the parent to be higher: here the parent has <code>height: 600px</code>.</p>
+                <p>Each one will be as big as the cell it falls in.</p>
+                <div class="parent grid" style="height: 600px">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+            </article>
+            <article>
+                <h2>Defining columns</h2>
+                <p>Here we define <code>grid-template-columns: 25% 75%;</code></p>
+                <div class="parent grid" style="grid-template-columns: 25% 75%;">
+                    <div>First column gets the 25%</div>
+                    <div>Second column gets the 75%</div>
+                    <div>A very very very long item</div>
+                </div>
+                <p>Widths can be expressed in any way.</p>
+                <p>If the expressed widths are not enough to fill the parent's space, we get a gap.</p>
+                <p>Here we define <code>grid-template-columns: 100px 200px</code></p>
+                <div class="parent grid" style="grid-template-columns: 100px 200px">
+                    <div>First column gets 100px</div>
+                    <div>Second column gets 200px</div>
+                    <div>This falls into the first column</div>
+                </div>
+                <p>Use <code>auto</code> to create a column that fills the gap.</p>
+                <p>Here we define <code>grid-template-columns: 100px 200px auto</code></p>
+                <div class="parent grid" style="grid-template-columns: 100px 200px auto">
+                    <div>First column gets 100px</div>
+                    <div>Second column gets 200px</div>
+                    <div>Third is "auto" so it gets the rest</div>
+                </div>
+                <p>Here we define <code>grid-template-columns: 1fr 4fr;</code>. <code>fr</code> means "fraction". The higher the number, the bigger the column.</p>
+                <div class="parent grid" style="grid-template-columns: 1fr 4fr">
+                    <div>First column gets 1fr (1 out of 5 parts)</div>
+                    <div>Second column gets 4fr (4 out of 5 parts). 5 parts because 1fr + 4fr = 5.</div>
+                    <div>A very very very long item</div>
+                </div>
+                <p>Same example, without content inside the cells. The cell width does not get affected by the content.</p>
+                <div class="parent grid" style="grid-template-columns: 1fr 4fr">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </article>
+            <article>
+                <h2>Defining rows</h2>
+                <p>While rows will automatically be created if columns are defined, we can also define them with <code>grid-template-rows</code>. This gives us control on, for example, their height.</p>
+                <p>Here we define <code>grid-template-columns: 1fr 4fr; grid-template-rows: 2fr 1fr</code></p>
+                <div class="parent grid" style="grid-template-columns: 1fr 4fr; grid-template-rows: 2fr 1fr">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <p>If there are more cells than what the columns and rows define, new "default" rows are automatically created.</p>
+                <p>Here we define <code>grid-template-columns: 1fr 4fr; grid-template-rows: 1fr 3fr</code></p>
+                <div class="parent grid" style="grid-template-columns: 1fr 4fr; grid-template-rows: 1fr 3fr">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </article>
+            <article>
+                <h2>The <code>repeat</code> keyword</h2>
+                <p>If your columns or rows are the same, you can use the <code>repeat</code> keyword to make your CSS shorter.</p>
+                <p>The two next parents are equivalent. This one creates 9 columns of the same size with <code>grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr</code></p>
+                <div class="parent grid" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <p>This one does the same but with <code>grid-template-columns: repeat(9, 1fr)</code></p>
+                <div class="parent grid" style="grid-template-columns: repeat(9, 1fr)">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </article>
+            <article>
+                <h2>Align content, justify content</h2>
+                <p>In grid we can do the same as in flexbox to move children through a main "axis".</p>
+                <p>This parent has <code>height: 600px; align-content: center</code></p>
+                <div class="parent grid" style="height: 600px; align-content: center">
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                    <div>A very very very long item</div>
+                </div>
+                <p>This parent has <code>height: 600px; grid-template-columns: 25% 75%; align-content: center</code></p>
+                <div class="parent grid" style="height: 600px; grid-template-columns: 25% 75%; align-content: center">
+                    <div>First column gets the 25%</div>
+                    <div>Second column gets the 75%</div>
+                    <div>A very very very long item</div>
+                </div>
+                <p>This parent has <code>height: 600px; align-content: space-evenly</code></p>
+                <div class="parent grid" style="height: 600px; align-content: space-evenly">
+                    <div>First column gets the 25%</div>
+                    <div>Second column gets the 75%</div>
+                    <div>A very very very long item</div>
+                </div>
+                <p>We can justify content, too. This parent has <code>height: 600px; justify-content: end</code></p>
+                <div class="parent grid" style="height: 600px; justify-content: end;">
+                    <div>First column gets the 25%</div>
+                    <div>Second column gets the 75%</div>
+                    <div>A very very very long item</div>
+                </div>
+                <p>For more details on <code>align-content</code> and <code>justify-content</code>, see the flexbox demos.</p>
+            </article>
+            <article>
+                <h2>Gaps</h2>
+                <p>Same as with flexbox, we can define the spacing between cells with the <code>gap</code> keyword.</p>
+                <p>With no gap:</p>
+                <div class="parent grid three-by-three">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </div>
+                <p>With <code>gap: 1rem</code>:</p>
+                <div class="parent grid three-by-three" style="gap: 1rem">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </div>
+                <p>We can also define <code>column-gap</code> and <code>row-gap</code> separately.</p>
+                <p>The following parent has <code>row-gap: 0.5rem; column-gap: 3rem</code>:</p>
+                <div class="parent grid three-by-three" style="row-gap: 0.5rem; column-gap: 3rem">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </div>
+                <p>We can put both values in <code>gap</code>, as such: <code>gap: (row-gap) (column-gap)</code>.</p>
+                <p>For example, this parent has <code>gap: 3rem 0.5rem</code> for the same effect as above:</p>
+                <div class="parent grid three-by-three" style="gap: 0.5rem 3rem">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </div>
+            </article>
+            <article>
+                <h2>Line-based placement</h2>
+                <p>For the following parents we are defining a 3x3 grid (3 columns, 3 rows).</p>
+                <div class="parent grid three-by-three">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </div>
+                <p>Imagine the lines that divide this grid. There are four vertical lines and four horizontal lines. We will number them from 1 to 4: from left to right and from top to bottom.</p>
+                <p>The grid analyzer of Chrome's developer console shows it like this:</p>
+                <figure>
+                    <img src="img/grid-layout-lines.png" alt="A screenshot of a CSS grid, with highlighted horizontal and vertical lines; each line has a number index from 1 to 4 in one side and from -1 to -4 in the other." />
+                    <figcaption>The horizontal and vertical lines where cells start and end are highlighted and numbered.</figcaption>
+                </figure>
+                <p>Now we can define cells that are bigger than one row x one column.</p>
+                <p>We can use these line numbers as reference to tell the browser where a cell starts and ends.</p>
+                <p>Note that since we defined three columns, we have four vertical lines. Same for rows: three rows, four vertical lines.</p>
+                <p>Also note the numeration starts at 1.</p>
+                <div class="parent grid three-by-three">
+                    <div style="grid-column-start: 1; grid-column-end: 3; grid-row-start: 1; grid-row-end: 4;">
+                        <code>
+                            grid-column-start: 1; grid-column-end: 3; grid-row-start: 1; grid-row-end: 4;
+                        </code>
+                    </div>
+                </div>
+                <p>This is what happened in the grid above:</p>
+                <figure>
+                    <img src="img/grid-layout-bigger-cell.png" alt="A screenshot of the CSS grid above, showing where the cell is starting and ending in relation to the highlighted horizontal and vertical lines." />
+                    <figcaption>Note how the cell stretched up to the limits we defined.</figcaption>
+                </figure>
+                <p><code>grid-column-start</code> and <code>grid-column-end</code> define in which vertical line a cell will start and end, respectively.</p>
+                <p><code>grid-row-start</code> and <code>grid-row-end</code> do the same for horizontal lines.</p>
+                <p>We can define all of our cells this way.</p>
+                <div class="parent grid three-by-three">
+                    <div>
+                        Nothing specified. By default: one by one
+                    </div>
+                    <div style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;">
+                        <code>
+                            grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;
+                        </code>
+                    </div>
+                    <div style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 3; grid-row-end: 4;">
+                        <code>
+                            grid-column-start: 3; grid-column-end: 4; grid-row-start: 3; grid-row-end: 4;
+                        </code>
+                    </div>
+                </div>
+                <div class="parent grid three-by-three">
+                    <div style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 3; grid-row-end: 4;">
+                        <code>
+                            grid-column-start: 3; grid-column-end: 4; grid-row-start: 3; grid-row-end: 4;
+                        </code>
+                    </div>
+                </div>
+                <p>We can also make overlapping cells:</p>
+                <div class="parent grid three-by-three">
+                    <div style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 2; grid-row-end: 4;">
+                        <code>
+                            grid-column-start: 1; grid-column-end: 2; grid-row-start: 2; grid-row-end: 4;
+                        </code>
+                    </div>
+                    <div style="grid-column-start: 3; grid-column-end: 4; grid-row-start: 1; grid-row-end: 4;">
+                        <code>
+                            grid-column-start: 3; grid-column-end: 4; grid-row-start: 1; grid-row-end: 4;
+                        </code>
+                    </div>
+                    <div style="grid-column-start: 1; grid-column-end: 4; grid-row-start: 3; grid-row-end: 4;">
+                        <code>
+                            grid-column-start: 1; grid-column-end: 4; grid-row-start: 3; grid-row-end: 4;
+                        </code>
+                    </div>
+                </div>
+                <p>There is also a shorthand for writing these things: <code>grid-column</code> and <code>grid-row</code>.</p>
+                <p>In both cases, the value is <code>start line / end line</code>. For a size of 1, you can just write the start line.</p>
+                <div class="parent grid three-by-three">
+                    <div style="grid-column: 1; grid-row: 1">
+                        <code>
+                            grid-column: 1; grid-row: 1
+                        </code>
+                        (same as default)
+                    </div>
+                    <div style="grid-column: 2 / 3; grid-row: 2 / 3;">
+                        <code>
+                            grid-column: 2 / 3; grid-row: 2 / 3
+                        </code>
+                    </div>
+                    <div style="grid-column: 3 / 4; grid-row: 3 / 4;">
+                        <code>
+                            grid-column: 3 / 4; grid-row: 3 / 4
+                        </code>
+                    </div>
+                </div>
+                <div class="parent grid three-by-three">
+                    <div style="grid-column: 1 / 2; grid-row: 2 / 4;">
+                        <code>
+                            grid-column: 1 / 2; grid-row: 2 / 4;
+                        </code>
+                    </div>
+                    <div style="grid-column: 3 / 4; grid-row: 1 / 4;">
+                        <code>
+                            grid-column: 3 / 4; grid-row: 1 / 4;
+                        </code>
+                    </div>
+                    <div style="grid-column: 1 / 4; grid-row: 3 / 4;">
+                        <code>
+                            grid-column: 1 / 4; grid-row: 3 / 4;
+                        </code>
+                    </div>
+                </div>
+                <p>Alternatively, instead of writing in what line the cell ends, we can write how many columns (or rows) big it is. For this, write <code>(start line) / span (size)</code>:</p>
+                <div class="parent grid three-by-three">
+                    <div style="grid-column: 1 / span 1; grid-row: 2 / span 2;">
+                        <code>
+                            grid-column: 1 / span 1; grid-row: 2 / span 2;
+                        </code>
+                    </div>
+                    <div style="grid-column: 3 / span 1; grid-row: 1 / span 3;">
+                        <code>
+                            grid-column: 3 / span 1; grid-row: 1 / span 3;
+                        </code>
+                    </div>
+                    <div style="grid-column: 1 / span 3; grid-row: 3 / span 1;">
+                        <code>
+                            grid-column: 1 / span 3; grid-row: 3 / span 1;
+                        </code>
+                    </div>
+                </div>
+                <p><code>span 1</code> is the default for the endso we can also just say:</p>
+                <div class="parent grid three-by-three">
+                    <div style="grid-column: 1; grid-row: 2 / span 2;">
+                        <code>
+                            grid-column: 1; grid-row: 2 / span 2;
+                        </code>
+                    </div>
+                    <div style="grid-column: 3; grid-row: 1 / span 3;">
+                        <code>
+                            grid-column: 3; grid-row: 1 / span 3;
+                        </code>
+                    </div>
+                    <div style="grid-column: 1 / span 3; grid-row: 3;">
+                        <code>
+                            grid-column: 1 / span 3; grid-row: 3;
+                        </code>
+                    </div>
+                </div>
+                <p><code>span (number)</code> can also be used with <code>grid-row-end</code> and <code>grid-column-end</code> for the same effect.</p>
+                <p>But there is an <em>even shorter</em> way of writing these values: <code>grid-area</code>.</p>
+                <p>Use it like this: <code>grid-area: (grid-row-start) / (grid-column-start) / (grid-row-end) / (grid-column-end)</code>.</p>
+                <div class="parent grid three-by-three">
+                    <div style="grid-area: 2 / 1 / 4 / 2;">
+                        <code>
+                            grid-area: 2 / 1 / 4 / 2;
+                        </code>
+                    </div>
+                    <div style="grid-area: 1 / 3 / 4 / 4;">
+                        <code>
+                            grid-area: 1 / 3 / 4 / 4;
+                        </code>
+                    </div>
+                    <div style="grid-area: 3 / 1 / 4 / 4;">
+                        <code>
+                            grid-area: 3 / 1 / 4 / 4;
+                        </code>
+                    </div>
+                </div>
+                <p>You can also use <code>span (number)</code> on the <code>-end</code> values.</p>
+                <div class="parent grid three-by-three">
+                    <div style="grid-area: 1 / 1 / 2 / span 2;">
+                        <code>
+                            grid-area: 1 / 1 / 2 / span 2;
+                        </code>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h2>Named areas</h2>
+                <p>We can also use <code>grid-area</code> in a very cool way: by "painting" our grid.</p>
+                <p>Suppose we want to create a layout with header and two columns.</p>
+                <p>First, we will define names for each area, and attach those to CSS rules.</p>
+                <p>We will do the following: </p>
+                <pre>
+                    .header { grid-area: head }
+                    .sidebar-left { grid-area: left }
+                    .sidebar-right { grid-area: right }
+                    .content { grid-area: cont }
+                </pre>
+                <p>Now, all of those names are used to "paint" the layout inside an instruction called <code>grid-template-areas</code>.</p>
+                <p>In this parent with class <code>gtareas</code>, we're using this technique with 6 columns and 4 rows.</p>
+                <p>Use the developer tools to take a closer look to the CSS styles.</p>
+                <div class="parent grid gtareas">
+                    <div class="header">
+                        <code>class="header"</code>
+                    </div>
+                    <div class="sidebar-left">
+                        <code>class="sidebar-left"</code>
+                    </div>
+                    <div class="content">
+                        <code>class="content"</code>
+                    </div>
+                    <div class="sidebar-right">
+                        <code>class="sidebar-right"</code>
+                    </div>
+                </div>
+                <p>This is what my Developer Tools show here:</p>
+                <figure>
+                    <img src="img/grid-template-areas.png" alt="Screenshot of Chrome Developer Tools showing the CSS rules applied to the grid above" />
+                    <figcaption>Note the <code>grid-template-areas</code> in the styles shown by Developer Tools.</figcaption>
+                </figure>
+                <p>Now we'll define a similar grid, but with an empty space.</p>
+                <p>To "paint" empty spaces, use the period (".").</p>
+                <pre>
+                    .gtareas-2 {
+                        grid-template-columns: repeat(6, 1fr);
+                        grid-template-rows: repeat(4, 1fr);
+                        grid-template-areas:
+                            'head head head head head head'
+                            '.    .    cont cont cont right'
+                            '.    .    cont cont cont right'
+                            '.    .    cont cont cont right';
+                    }
+                </pre>
+                <div class="parent grid gtareas-2">
+                    <div class="header">
+                        <code>class="header"</code>
+                    </div>
+                    <div class="content">
+                        <code>class="content"</code>
+                    </div>
+                    <div class="sidebar-right">
+                        <code>class="sidebar-right"</code>
+                    </div>
+                </div>
+                <p>Note that your areas must be rectangular.</p>
+                <p>Also, you must define a value for each one of the cells in your grid, no missing values.</p>
+                <p>If you break these rules, the whole <code>grid-template-areas</code> will be invalid and you will have trouble.</p>
+                <p>For example:</p>
+                <pre>
+                    .gtareas-broken {
+                        grid-template-columns: repeat(6, 1fr);
+                        grid-template-rows: repeat(4, 1fr);
+                        grid-template-areas:
+                            'head head head head head head'
+                            '.    .    cont cont cont right'
+                            '.    cont cont cont cont right'
+                            '.    cont cont cont cont right';
+                    }
+                </pre>
+                <div class="parent grid gtareas-broken">
+                    <div class="header">
+                        <code>class="header"</code>
+                    </div>
+                    <div class="content">
+                        <code>class="content"</code>
+                    </div>
+                    <div class="sidebar-right">
+                        <code>class="sidebar-right"</code>
+                    </div>
+                </div>
+                <p>There is a shorthand, <code>grid-template</code>, to define all three (rows, columns, areas).</p>
+                <p>In <code>grid-template</code>, we define each row's areas and then the size of the row.</p>
+                <p>Then, we add a <code>/</code> and the size of each column.</p>
+                <p>Let's redo the first named grid we did:</p>
+                <pre>
+                    .gtareas-short {
+                        grid-template:
+                            'head head head head head head' 1fr
+                            'left cont cont cont cont right' 1fr
+                            'left cont cont cont cont right' 1fr
+                            'left cont cont cont cont right' 1fr
+                           / 1fr  1fr  1fr  1fr  1fr  1fr;
+                    }
+                </pre>
+                <div class="parent grid gtareas-short">
+                    <div class="header">
+                        <code>class="header"</code>
+                    </div>
+                    <div class="sidebar-left">
+                        <code>class="sidebar-left"</code>
+                    </div>
+                    <div class="content">
+                        <code>class="content"</code>
+                    </div>
+                    <div class="sidebar-right">
+                        <code>class="sidebar-right"</code>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </body>
+</html>
