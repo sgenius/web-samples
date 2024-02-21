@@ -1,0 +1,71 @@
+html {
+    background: rgb(255, 255, 220);
+}
+
+.container {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 0.5rem solid lightblue;
+}
+
+.child {
+    padding: 0.5rem;
+    border: 0.5rem solid blue;
+
+    flex: 0 1 auto;
+    flex-grow: 0;
+    flex-shrink: 2;
+    flex-basis: auto;
+}
+
+.child-1 {
+    flex-grow: 4;
+    flex-basis: 0;
+    flex-shrink: 12;
+}
+
+.child-2 {
+    flex-grow: 2;
+    flex-basis: 0;
+    flex-shrink: 4;
+}
+
+.child-3 {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+/* layout */
+
+.three-column {
+    flex-direction: column;
+}
+
+.three-column > * {
+    border: 0.5rem solid darkblue;
+}
+
+
+@media (min-width: 600px) {
+    .three-column {
+        flex-direction: row;
+    }
+
+    .left-column {
+        flex-basis: 20%;
+    }
+    
+    .right-column {
+        flex-basis: 20%;
+    }
+    
+    .three-column main {
+        flex-basis: 60%;
+    }    
+}
