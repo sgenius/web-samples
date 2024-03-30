@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency conversion</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="script.js"></script>
+</head>
+<body onload="init()">
+    <div id="wrapper">
+        <header>
+            <h1>Currency conversion</h1>
+        </header>
+        <main>
+            <section id="app">
+                <form>
+                    <div>
+                        <label for="quantity">Quantity: </label>
+                        <input type="number" name="quantity" id="quantity" required />    
+                    </div>
+                    <div>
+                        <label for="from">From: </label>
+                        <select id="from">
+                        </select>
+                    </div>
+                    <div>
+                        <label for="to">To: </label>
+                        <input name="to" id="to" required />
+                    </div>
+                    <input type="submit" onclick="handleSubmit(event)" value="Convert" />
+                </form>
+            </section>
+            <p>Using data from <a href="https://currencybeacon.com/">Currency Beacon</a></p>
+        </main>
+    </div>
+</body>
+</html>
