@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+main {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+}
+
+button {
+    padding: 1rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
