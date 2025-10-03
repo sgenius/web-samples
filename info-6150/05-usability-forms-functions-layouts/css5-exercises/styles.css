@@ -1,0 +1,69 @@
+/* Basic CSS styling for a single page */
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+    background: #87B6A7;
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+header h1 {
+    color: #f1f1f1;
+    margin-bottom: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+a {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #eee;
+    color: #666;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+pre {
+    background: #E3F09B;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 1em 0;
+    font-size: 0.8rem;
+}

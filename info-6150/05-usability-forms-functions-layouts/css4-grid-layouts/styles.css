@@ -289,3 +289,20 @@ article {
         grid-row: 2 / span 2;
     }
 }
+
+/* auto-fill columns */
+.layout-4 {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-4 main {
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    border: 1rem solid var(--bg-color-cell);
+    border-width: 1rem 0;
+    /* auto-fit means: as many as will fit in the container */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
