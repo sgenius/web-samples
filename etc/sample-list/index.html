@@ -1,0 +1,149 @@
+<html>
+<head>
+    <title>Sample List</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div class="app">
+    <div class="sample-list">
+        <h1>Sample Items</h1>
+
+        <div class="search">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button id="search-btn" class="btn">Search</button>
+        </div>
+
+        <table class="sample-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="sample-tbody"></tbody>
+        </table>
+
+        <div id="pagination" class="pagination"></div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        const itemsPerPage = 5;
+        let currentPage = 1;
+
+        // Generate sample data
+        const sampleData = Array.from({ length: 23 }, (_, i) => ({
+            id: i + 1,
+            name: `Item ${i + 1}`,
+            description: `This is a short description for item ${i + 1}.`,
+            image: `https://placehold.co/50`,
+            date: new Date(Date.now() - i * 86400000).toLocaleDateString()
+        }));
+
+        function renderTablePage(page) {
+            currentPage = Math.max(1, Math.min(page, Math.ceil(sampleData.length / itemsPerPage)));
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageItems = sampleData.slice(start, end);
+
+            const tbody = document.getElementById('sample-tbody');
+            tbody.innerHTML = pageItems.map(item => `
+                <tr>
+                    <td>${item.id}</td>
+                    <td>${escapeHtml(item.name)}</td>
+                    <td>${escapeHtml(item.description)}</td>
+                    <td><img src="${item.image}" alt="${escapeHtml(item.name)}" class="thumb"></td>
+                    <td>${item.date}</td>
+                    <td>
+                        <button class="btn btn-edit" data-id="${item.id}">Edit</button>
+                        <button class="btn btn-delete" data-id="${item.id}">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const totalPages = Math.ceil(sampleData.length / itemsPerPage);
+            const container = document.getElementById('pagination');
+            if (totalPages <= 1) {
+                container.innerHTML = '';
+                return;
+            }
+
+            const pages = [];
+            pages.push(`<button class="page-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''}>Prev</button>`);
+
+            for (let p = 1; p <= totalPages; p++) {
+                pages.push(`<button class="page-btn ${p === currentPage ? 'active' : ''}" data-page="${p}">${p}</button>`);
+            }
+
+            pages.push(`<button class="page-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>`);
+
+            container.innerHTML = pages.join('');
+        }
+
+        // Event delegation for pagination and action buttons
+        document.addEventListener('click', function (e) {
+            const pageBtn = e.target.closest('.page-btn');
+            if (pageBtn && pageBtn.dataset.page) {
+                const p = Number(pageBtn.dataset.page);
+                renderTablePage(p);
+                return;
+            }
+
+            const editBtn = e.target.closest('.btn-edit');
+            if (editBtn) {
+                const id = Number(editBtn.dataset.id);
+                editItem(id);
+                return;
+            }
+
+            const deleteBtn = e.target.closest('.btn-delete');
+            if (deleteBtn) {
+                const id = Number(deleteBtn.dataset.id);
+                deleteItem(id);
+                return;
+            }
+        });
+
+        function editItem(id) {
+            // Placeholder action - hook into edit UI as needed
+            alert('Edit item ' + id);
+        }
+
+        function deleteItem(id) {
+            if (!confirm('Delete item ' + id + '?')) return;
+            const index = sampleData.findIndex(it => it.id === id);
+            if (index >= 0) {
+                sampleData.splice(index, 1);
+                // reassign sequential ids (optional)
+                sampleData.forEach((it, idx) => it.id = idx + 1);
+                // adjust currentPage if needed
+                const maxPage = Math.max(1, Math.ceil(sampleData.length / itemsPerPage));
+                if (currentPage > maxPage) currentPage = maxPage;
+                renderTablePage(currentPage);
+            }
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        // Initial render
+        renderTablePage(1);
+    })();
+</script>
+</body>
+</html>
